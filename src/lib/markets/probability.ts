@@ -1,3 +1,4 @@
+import { parseTradeSide } from "@/lib/fake-money";
 import type {
   Market,
   MarketProbability,
@@ -31,23 +32,6 @@ export function computeYesChanceFromTotals(
   }
 
   return { yesChance: yesTotal / total, source: "positions" };
-}
-
-export function parseTradeSide(description: string): "yes" | "no" | null {
-  const normalized = description.toLowerCase();
-
-  const hasYes = /\byes\b/.test(normalized);
-  const hasNo = /\bno\b/.test(normalized);
-
-  if (hasYes && !hasNo) {
-    return "yes";
-  }
-
-  if (hasNo && !hasYes) {
-    return "no";
-  }
-
-  return null;
 }
 
 export function buildHistoryPoints(
