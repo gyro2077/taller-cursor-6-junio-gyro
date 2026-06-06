@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { MarketBuyPlaceholder } from "@/components/marketlab/market-buy-placeholder";
+import { MarketBuySection } from "@/components/marketlab/market-buy-section";
 import { MarketDetailInfo } from "@/components/marketlab/market-detail-info";
 import { MarketOutcomes } from "@/components/marketlab/market-outcomes";
 import { ProbabilityChart } from "@/components/marketlab/probability-chart";
@@ -37,7 +37,7 @@ export default async function MarketDetailPage({
         <MarketDetailInfo market={market} />
         <MarketOutcomes yesChance={probability.yesChance} />
         <ProbabilityChart probability={probability} />
-        <MarketBuyPlaceholder market={market} />
+        <MarketBuySection market={market} />
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 
+import { parseTradeSide } from "@/lib/fake-money";
 import {
   buildFlatCurrentBalancePoints,
   buildHistoryPoints,
   computeYesChanceFromTotals,
   NEUTRAL_YES_CHANCE,
-  parseTradeSide,
 } from "@/lib/markets/probability";
 import type { Market } from "@/lib/markets/types";
 

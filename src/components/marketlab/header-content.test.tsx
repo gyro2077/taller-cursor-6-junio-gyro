@@ -22,6 +22,8 @@ describe("HeaderContent", () => {
     expect(html).toContain("MarketLab");
     expect(html).toContain("Markets");
     expect(html).toContain("/markets");
+    expect(html).toContain("My Positions");
+    expect(html).toContain("/positions");
     expect(html).toContain("Sign in");
     expect(html).toContain("/sign-in");
     expect(html).toContain("Sign up");

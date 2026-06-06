@@ -166,7 +166,10 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      buy_shares: {
+        Args: { p_amount_cents: number; p_market_id: string; p_side: string };
+        Returns: undefined;
+      };
     };
     Enums: {
       [_ in never]: never;
