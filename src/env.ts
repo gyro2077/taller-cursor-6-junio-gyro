@@ -4,6 +4,7 @@ const envSchema = z.object({
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(1).optional(),
   NEXT_PUBLIC_SUPABASE_URL: z.string().url().optional(),
   SUPABASE_PROJECT_REF: z.string().min(1).optional(),
+  SUPABASE_SERVICE_ROLE_KEY: z.string().min(1).optional(),
 });
 
 function readEnv(name: keyof z.infer<typeof envSchema>) {
@@ -16,4 +17,5 @@ export const env = envSchema.parse({
   ),
   NEXT_PUBLIC_SUPABASE_URL: readEnv("NEXT_PUBLIC_SUPABASE_URL"),
   SUPABASE_PROJECT_REF: readEnv("SUPABASE_PROJECT_REF"),
+  SUPABASE_SERVICE_ROLE_KEY: readEnv("SUPABASE_SERVICE_ROLE_KEY"),
 });
