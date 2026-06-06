@@ -1,14 +1,23 @@
+import { FakeMoneyChipRow } from "@/components/marketlab/fake-money-chip";
 import { MarketStatusBadge } from "@/components/marketlab/market-status-badge";
-import { formatCloseDate, formatMarketDescription } from "@/lib/markets/format";
+import { SurfaceCard } from "@/components/marketlab/surface-card";
+import {
+  formatCloseDate,
+  formatMarketDescription,
+  formatMarketStatus,
+} from "@/lib/markets/format";
 import type { Market } from "@/lib/markets/types";
 
 export function MarketDetailInfo({ market }: { market: Market }) {
   return (
-    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+    <SurfaceCard>
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <h1 className="text-2xl font-semibold tracking-tight text-card-foreground sm:text-3xl">
-          {market.title}
-        </h1>
+        <div className="space-y-3">
+          <h1 className="text-2xl font-semibold tracking-tight text-card-foreground sm:text-3xl">
+            {market.title}
+          </h1>
+          <FakeMoneyChipRow variants={["workshop", "conversion"]} />
+        </div>
         <MarketStatusBadge status={market.status} />
       </div>
 
@@ -16,11 +25,11 @@ export function MarketDetailInfo({ market }: { market: Market }) {
         {formatMarketDescription(market)}
       </p>
 
-      <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+      <dl className="mt-6 grid gap-4 border-t border-border pt-6 sm:grid-cols-2">
         <div>
           <dt className="text-sm font-medium text-foreground">Status</dt>
           <dd className="mt-1 text-sm text-muted-foreground">
-            {market.status}
+            {formatMarketStatus(market.status)}
           </dd>
         </div>
         <div>
@@ -30,6 +39,6 @@ export function MarketDetailInfo({ market }: { market: Market }) {
           </dd>
         </div>
       </dl>
-    </section>
+    </SurfaceCard>
   );
 }

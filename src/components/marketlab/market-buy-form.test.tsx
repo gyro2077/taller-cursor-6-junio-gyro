@@ -29,6 +29,21 @@ describe("MarketBuyForm", () => {
     expect(html).not.toContain('name="amount"');
   });
 
+  it("shows unavailable message for signed-out users on closed markets", () => {
+    const html = renderForm({
+      marketId: "market-1",
+      marketBuyable: false,
+      isSignedIn: false,
+      balanceCents: null,
+      yesSharesCents: 0,
+      noSharesCents: 0,
+    });
+
+    expect(html).toContain('data-slot="buy-unavailable"');
+    expect(html).toContain('data-slot="signed-out-buy"');
+    expect(html).not.toContain('name="amount"');
+  });
+
   it("shows unavailable message for closed markets", () => {
     const html = renderForm({
       marketId: "market-1",

@@ -15,11 +15,11 @@ export function PositionCard({ position }: { position: PositionWithMarket }) {
 
   return (
     <article
-      className="flex h-full flex-col rounded-xl border border-border bg-card p-5 shadow-sm"
+      className="group flex h-full flex-col rounded-xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/30"
       data-slot="position-card"
     >
       <div className="flex items-start justify-between gap-3">
-        <h2 className="text-lg font-semibold text-card-foreground">
+        <h2 className="text-lg font-semibold leading-snug text-card-foreground">
           {market.title}
         </h2>
         <MarketStatusBadge status={market.status} />
@@ -34,7 +34,7 @@ export function PositionCard({ position }: { position: PositionWithMarket }) {
         <div>
           <dt className="text-muted-foreground">Yes shares</dt>
           <dd
-            className="font-medium text-foreground tabular-nums"
+            className="font-medium tabular-nums text-emerald-700 dark:text-emerald-300"
             data-slot="yes-shares"
           >
             {formatShareCents(position.yes_shares_cents)}
@@ -43,7 +43,7 @@ export function PositionCard({ position }: { position: PositionWithMarket }) {
         <div>
           <dt className="text-muted-foreground">No shares</dt>
           <dd
-            className="font-medium text-foreground tabular-nums"
+            className="font-medium tabular-nums text-rose-700 dark:text-rose-300"
             data-slot="no-shares"
           >
             {formatShareCents(position.no_shares_cents)}
@@ -52,7 +52,7 @@ export function PositionCard({ position }: { position: PositionWithMarket }) {
         <div>
           <dt className="text-muted-foreground">Total shares</dt>
           <dd
-            className="font-medium text-foreground tabular-nums"
+            className="font-medium tabular-nums text-foreground"
             data-slot="total-shares"
           >
             {formatShareCents(totalSharesCents)}
