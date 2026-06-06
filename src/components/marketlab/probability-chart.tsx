@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 
+import { SurfaceCard } from "@/components/marketlab/surface-card";
 import { Button } from "@/components/ui/button";
 import { formatPercent } from "@/lib/markets/format";
 import {
@@ -49,7 +50,7 @@ export function ProbabilityChart({
       : "Flat line showing the current computed or neutral Yes chance.";
 
   return (
-    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+    <SurfaceCard>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="text-lg font-semibold text-card-foreground">
@@ -68,6 +69,7 @@ export function ProbabilityChart({
               type="button"
               size="sm"
               variant={range === option.value ? "default" : "outline"}
+              aria-pressed={range === option.value}
               onClick={() => setRange(option.value)}
             >
               {option.label}
@@ -148,13 +150,13 @@ export function ProbabilityChart({
           {chart.polyline ? (
             <polyline
               fill="none"
-              className="stroke-chart-1"
+              className="stroke-emerald-500"
               strokeWidth="2"
               points={chart.polyline}
             />
           ) : null}
         </svg>
       </div>
-    </section>
+    </SurfaceCard>
   );
 }

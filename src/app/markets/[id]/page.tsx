@@ -25,10 +25,10 @@ export default async function MarketDetailPage({
   const probability = await getMarketProbability(market);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:py-10">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
       <Link
         href="/markets"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
       >
         ← Back to markets
       </Link>

@@ -55,6 +55,8 @@ describe("PositionsContent", () => {
       positions: [position],
     });
 
+    expect(html).toContain('data-slot="positions-summary"');
+    expect(html).toContain("Markets held");
     expect(html).toContain("Will it rain tomorrow?");
     expect(html).toContain('data-slot="yes-shares"');
     expect(html).toContain('data-slot="no-shares"');

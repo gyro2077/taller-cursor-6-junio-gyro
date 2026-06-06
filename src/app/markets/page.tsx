@@ -1,5 +1,7 @@
+import { FakeMoneyChipRow } from "@/components/marketlab/fake-money-chip";
 import { MarketCard } from "@/components/marketlab/market-card";
 import { MarketEmptyState } from "@/components/marketlab/market-empty-state";
+import { PageHeader } from "@/components/marketlab/page-header";
 import { getMarkets } from "@/lib/markets/queries";
 
 export default async function MarketsPage() {
@@ -7,14 +9,12 @@ export default async function MarketsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
-      <div className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Markets
-        </h1>
-        <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-          Browse fictional Yes/No markets using fake money.
-        </p>
-      </div>
+      <PageHeader
+        title="Markets"
+        description="Browse fictional Yes/No markets using fake money."
+      >
+        <FakeMoneyChipRow variants={["workshop", "spend"]} />
+      </PageHeader>
 
       {markets.length === 0 ? (
         <MarketEmptyState />

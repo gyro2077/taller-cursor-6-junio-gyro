@@ -1,11 +1,15 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   HeaderContent,
   type HeaderContentProps,
 } from "@/components/marketlab/header-content";
 import { ThemeProvider } from "@/components/marketlab/theme-provider";
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/markets",
+}));
 
 function renderHeader(props: HeaderContentProps) {
   return renderToStaticMarkup(
