@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  formatBalanceCents,
   formatCloseDate,
   formatMarketStatus,
   formatPercent,
@@ -28,5 +29,12 @@ describe("formatPercent", () => {
   it("rounds to whole percentages", () => {
     expect(formatPercent(0.506)).toBe("51%");
     expect(formatPercent(0.5)).toBe("50%");
+  });
+});
+
+describe("formatBalanceCents", () => {
+  it("formats fake balance as currency", () => {
+    expect(formatBalanceCents(10000)).toBe("$100.00 fake");
+    expect(formatBalanceCents(0)).toBe("$0.00 fake");
   });
 });

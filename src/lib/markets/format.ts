@@ -32,3 +32,12 @@ export function formatPercent(value: number): string {
 export function formatMarketDescription(market: Market): string {
   return market.description.trim() || "No description provided.";
 }
+
+export function formatBalanceCents(balanceCents: number): string {
+  const dollars = balanceCents / 100;
+
+  return `${new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(dollars)} fake`;
+}
